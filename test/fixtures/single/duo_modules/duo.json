@@ -1,0 +1,27 @@
+{
+  "index.js": {
+    "id": "index.js",
+    "type": "js",
+    "mtime": 1421146736000,
+    "src": "/**\n * Module Dependencies\n */\n\nvar a = require('./a.js');\nvar b = require('./b.js');\n",
+    "deps": {
+      "./a.js": "a.js",
+      "./b.js": "b.js"
+    },
+    "entry": true
+  },
+  "a.js": {
+    "id": "a.js",
+    "type": "js",
+    "mtime": 1421146735000,
+    "src": "module.exports = 'a';\n",
+    "deps": {}
+  },
+  "b.js": {
+    "id": "b.js",
+    "type": "js",
+    "mtime": 1421146736000,
+    "src": "module.exports = 'b!';\n",
+    "deps": {}
+  }
+}

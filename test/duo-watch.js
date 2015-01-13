@@ -41,6 +41,13 @@ describe('duo-watch', function() {
 
   describe('watch(root)', function() {
 
+    it('should support other install paths', function *(){
+      var root = path('single');
+      var js = yield duo(root).run();
+      var watch = yield Watch(root, {installTo: 'duo_modules'});
+      assert(join(root, 'duo_modules', 'duo.json') == watch.path);
+    });
+
     it('should detect single file changes', function *() {
       var root = path('single');
       var js = yield duo(root).run();
@@ -122,9 +129,9 @@ describe('duo-watch', function() {
  * Watch
  */
 
-function Watch(root) {
+function Watch(root, opts) {
   return function(fn) {
-    var w = new Watcher(root);
+    var w = new Watcher(root, opts);
     if (w.ready) return fn(null, w);
     w.sane.on('ready', function(err) {
       fn(err, w);
